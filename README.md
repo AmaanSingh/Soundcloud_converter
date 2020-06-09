@@ -13,9 +13,9 @@ A simple script that takes your Souncloud playlist, and generates a Spotify play
 
 2) Get your Spotify User ID and Oauth Token From Spotfiy and add it to secrets.py file. You can add the souncloud playlist you are trying to convert.
     * You can get your User ID by Logging into Spotify and going here: [Account Overview] and its your **Username**
-    ![alt text](userid.png)
+    ![alt text](images/userid.png)
     * You can get the Oauth Token here: [Get Oauth] and click the **Get Token** button
-    ![alt text](spotify_token.png)
+    ![alt text](images/spotify_token.png)
 
 4) Run the File  
 `python3 create_playlist.py`   
