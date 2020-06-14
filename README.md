@@ -1,4 +1,4 @@
-# SpotifyGeneratePlaylist
+# Soundcloud-to-Spotify Playlist Converter
 A simple script that takes your Souncloud playlist, and generates a Spotify playlist.
 
 
