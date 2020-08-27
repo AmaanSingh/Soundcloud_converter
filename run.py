@@ -11,10 +11,28 @@ driver = webdriver.Chrome(ChromeDriverManager().install())
 wait = WebDriverWait(driver, 100)
 
 driver.get(souncloud_playlist)
-
+"""
 html = driver.find_element_by_tag_name('html')
 html.send_keys(Keys.END)
-time.sleep(3)
+time.sleep(5)
+"""
+SCROLL_PAUSE_TIME = 0.5
+
+# Get scroll height
+last_height = driver.execute_script("return document.body.scrollHeight")
+
+while True:
+    # Scroll down to bottom
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+    # Wait to load page
+    time.sleep(SCROLL_PAUSE_TIME)
+
+    # Calculate new scroll height and compare with last scroll height
+    new_height = driver.execute_script("return document.body.scrollHeight")
+    if new_height == last_height:
+        break
+    last_height = new_height
 
 wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'trackItem__trackTitle')))
 wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'trackItem__username')))
