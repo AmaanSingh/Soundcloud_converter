@@ -36,10 +36,37 @@ while True:
 
 wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'trackItem__trackTitle')))
 wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'trackItem__username')))
+songs1 = []
+artists1 = []
 songs = []
 artists = []
+
 for elm in driver.find_elements_by_css_selector(".trackItem__trackTitle"):
-    songs.append(elm.text)
+    songs1.append(elm.text)
 for elm in driver.find_elements_by_css_selector(".trackItem__username"):
     artists.append(elm.text)
 driver.quit()
+
+for i in songs1:
+    try:
+        song2 = i.split('- ')[1]
+        songs.append(song2)
+    except Exception:
+        songs.append(i)
+"""
+bad_chars = ["✰","()"]
+for artist in artists1:
+    for g in bad_chars:
+        artist2 = artist.replace(g, " ")
+        artists.append(artist2)
+    #except Exception:
+    #    artists.append(i)
+
+print(artists)
+"""
+"""
+bad_chars = ["✰","-"]
+    for i in bad_chars:
+        test = test.replace(i, "")
+
+"""
