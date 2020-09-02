@@ -21,7 +21,7 @@ A simple script that takes your Souncloud playlist, and generates a Spotify play
 `python3 create_playlist.py`   
 
 ## Troubleshooting
-* Spotify Oauth token expires real quickly, If a `KeyError` comes up, then this probably means that the token has expired. Just request a new one and you'll be good.
+* Spotify Oauth token expires real quickly, If none returns throughout all the list comes up, then this probably means that the token has expired. Just request a new one and you'll be good.
 
 
 
