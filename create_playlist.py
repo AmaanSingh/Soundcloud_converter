@@ -59,9 +59,6 @@ def add_song_to_playlist(x, y, list_songs):
             artist = artists[song-1]
             spotify_uri = get_spotify_uri(song_name, artist, x, y)
             uris.append(spotify_uri)
-            print(song)
-            print(song_name)
-            print(artist)
     print(uris)
     v = len(songs)
     # create a new playlist
