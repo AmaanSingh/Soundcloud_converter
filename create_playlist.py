@@ -89,4 +89,5 @@ def add_song_to_playlist(x, y, list_songs):
 
 if __name__ == '__main__':
     add_song_to_playlist(len(songs), len(artists), range(len(songs)))
+    print("Down below are songs that haven't been added to the playlist because they were not found on Spotify:" )
     print(no_add)
