@@ -6,7 +6,7 @@ import requests
 import requests.exceptions
 from run import songs, artists
 from secrets import spotify_token, spotify_user_id, playlist_name, description
-
+no_add = {}
 def create_playlist():
     """Create A New Playlist"""
     request_body = json.dumps({
@@ -26,7 +26,7 @@ def create_playlist():
     )
     response_json = response.json()
     # playlist id
-    print(response_json["id"])
+    #print(response_json["id"])
     return response_json["id"]
 
 def get_spotify_uri(song_name, artist, x, y):
@@ -45,10 +45,13 @@ def get_spotify_uri(song_name, artist, x, y):
         response_json = response.json()
         #print(response_json["tracks"]["limit"])
         songs = response_json["tracks"]["items"]
+
         # only use the first song
         uri = songs[0]["uri"]
         return uri
     except Exception:
+        #print(song_name)
+        no_add[song_name] = artist
         x = x - 1
         y = y - 1
 
@@ -86,3 +89,4 @@ def add_song_to_playlist(x, y, list_songs):
 
 if __name__ == '__main__':
     add_song_to_playlist(len(songs), len(artists), range(len(songs)))
+    print(no_add)
