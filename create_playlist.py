@@ -6,6 +6,7 @@ import requests
 import requests.exceptions
 from run import songs, artists
 from secrets import spotify_token, spotify_user_id, playlist_name, description
+
 no_add = {}
 def create_playlist():
     """Create A New Playlist"""
@@ -63,6 +64,8 @@ def add_song_to_playlist(x, y, list_songs):
             spotify_uri = get_spotify_uri(song_name, artist, x, y)
             uris.append(spotify_uri)
     print(uris)
+    print("Down below are songs that haven't been added to the playlist because they were not found on Spotify:" )
+    print(no_add)
     v = len(songs)
     # create a new playlist
     playlist_id = create_playlist()
@@ -89,5 +92,3 @@ def add_song_to_playlist(x, y, list_songs):
 
 if __name__ == '__main__':
     add_song_to_playlist(len(songs), len(artists), range(len(songs)))
-    print("Down below are songs that haven't been added to the playlist because they were not found on Spotify:" )
-    print(no_add)
